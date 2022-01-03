@@ -6,8 +6,8 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].[contenthash:8].js",
-        chunkFilename: "[name].[contenthash:8].js"
+        filename: "js/[name].[contenthash:8].js",
+        chunkFilename: "js/[name].[contenthash:8].js"
     },
     module: {
         rules: [
@@ -35,7 +35,10 @@ module.exports = {
             title: 'learn-webpack',
             template: "./public/index.html"
         }),
-        new miniCssExtractPlugin()
+        new miniCssExtractPlugin({
+            filename: "css/[name].[contenthash:8].css",
+            chunkFilename: "css/[name].[contenthash:8].css"
+        })
     ],
     devServer: {
         hot: true
